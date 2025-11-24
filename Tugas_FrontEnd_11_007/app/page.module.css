@@ -1,0 +1,205 @@
+.page {
+  --gray-rgb: 58, 58, 58;
+  --gray-alpha-200: rgba(var(--gray-rgb), 0.12);
+  --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
+
+  --button-primary-hover: #4a4a4a;
+  --button-secondary-hover: #e6e6e6;
+
+  display: grid;
+  grid-template-rows: 20px 1fr 20px;
+  align-items: center;
+  justify-items: center;
+  min-height: 100svh;
+  padding: 80px;
+  gap: 64px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+  color: #2c3e50;
+}
+
+@media (prefers-color-scheme: dark) {
+  .page {
+    --gray-rgb: 235, 235, 235;
+    --gray-alpha-200: rgba(var(--gray-rgb), 0.18);
+    --gray-alpha-100: rgba(var(--gray-rgb), 0.08);
+
+    --button-primary-hover: #ddd;
+    --button-secondary-hover: #1f1f1f;
+    background: linear-gradient(135deg, #1a1a1a, #222);
+    color: #e1e1e1;
+  }
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  grid-row-start: 2;
+  max-width: 720px;
+  width: 100%;
+  background-color: #ffffffcc;
+  backdrop-filter: saturate(180%) blur(20px);
+  padding: 40px 48px;
+  border-radius: 20px;
+  box-shadow: 0 12px 36px rgba(44, 62, 80, 0.15);
+}
+
+@media (prefers-color-scheme: dark) {
+  .main {
+    background-color: rgba(50, 50, 50, 0.6);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.6);
+  }
+}
+
+.main ol {
+  font-family: 'Courier New', Courier, monospace;
+  padding-left: 20px;
+  margin: 0;
+  font-size: 15px;
+  line-height: 28px;
+  letter-spacing: -0.005em;
+  list-style-position: inside;
+  color: #34495e;
+}
+
+.main li:not(:last-of-type) {
+  margin-bottom: 12px;
+}
+
+.main code {
+  font-family: 'Source Code Pro', monospace, monospace;
+  background: var(--gray-alpha-100);
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-weight: 700;
+  color: #d35400;
+  box-shadow: inset 0 0 5px rgba(211, 84, 0, 0.2);
+}
+
+.ctas {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.ctas a {
+  appearance: none;
+  border-radius: 64px;
+  height: 52px;
+  padding: 0 28px;
+  border: none;
+  border: 2px solid transparent;
+  transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  line-height: 24px;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(44, 62, 80, 0.1);
+}
+
+a.primary {
+  background: #34495e;
+  color: #ecf0f1;
+  gap: 12px;
+  box-shadow: 0 6px 20px rgba(52, 73, 94, 0.6);
+}
+
+a.secondary {
+  border-color: var(--gray-alpha-200);
+  background: transparent;
+  color: #34495e;
+  min-width: 180px;
+  box-shadow: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  a.primary:hover {
+    background: #2c3e50;
+    border-color: transparent;
+    box-shadow: 0 8px 24px rgba(44, 62, 80, 0.75);
+  }
+
+  a.secondary:hover {
+    background: var(--button-secondary-hover);
+    border-color: transparent;
+    box-shadow: 0 4px 16px rgba(52, 73, 94, 0.2);
+  }
+
+  .footer a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+}
+
+.footer {
+  grid-row-start: 3;
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  font-weight: 500;
+  color: #7f8c8d;
+}
+
+.footer a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: color 0.3s ease;
+}
+
+.footer img {
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 1px rgba(127, 140, 141, 0.5));
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  .page {
+    padding: 32px;
+    padding-bottom: 80px;
+  }
+
+  .main {
+    align-items: center;
+    padding: 28px 32px;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(44, 62, 80, 0.12);
+  }
+
+  .main ol {
+    text-align: center;
+    padding-left: 10px;
+    font-size: 14px;
+  }
+
+  .ctas {
+    flex-direction: column;
+  }
+
+  .ctas a {
+    font-size: 15px;
+    height: 44px;
+    padding: 0 20px;
+  }
+
+  a.secondary {
+    min-width: auto;
+  }
+
+  .footer {
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .logo {
+    filter: invert(1) drop-shadow(0 0 2px #e1e1e1);
+  }
+}
